@@ -83,9 +83,9 @@ void GridGraph_Individually(int width,int height,int num_pixels,int num_labels)
 				gc->setSmoothCost(l1,l2,cost); 
 			}
 
-		printf("\nBefore optimization energy is %d",gc->compute_energy());
+		printf("\nBefore optimization energy is %lld",gc->compute_energy());
 		gc->expansion(2);// run expansion for 2 iterations. For swap use gc->swap(num_iterations);
-		printf("\nAfter optimization energy is %d",gc->compute_energy());
+		printf("\nAfter optimization energy is %lld",gc->compute_energy());
 
 		for ( int  i = 0; i < num_pixels; i++ )
 			result[i] = gc->whatLabel(i);
@@ -131,9 +131,9 @@ void GridGraph_DArraySArray(int width,int height,int num_pixels,int num_labels)
 		GCoptimizationGridGraph *gc = new GCoptimizationGridGraph(width,height,num_labels);
 		gc->setDataCost(data);
 		gc->setSmoothCost(smooth);
-		printf("\nBefore optimization energy is %d",gc->compute_energy());
+		printf("\nBefore optimization energy is %lld",gc->compute_energy());
 		gc->expansion(2);// run expansion for 2 iterations. For swap use gc->swap(num_iterations);
-		printf("\nAfter optimization energy is %d",gc->compute_energy());
+		printf("\nAfter optimization energy is %lld",gc->compute_energy());
 
 		for ( int  i = 0; i < num_pixels; i++ )
 			result[i] = gc->whatLabel(i);
@@ -185,9 +185,9 @@ void GridGraph_DfnSfn(int width,int height,int num_pixels,int num_labels)
 		// smoothness comes from function pointer
 		gc->setSmoothCost(&smoothFn);
 
-		printf("\nBefore optimization energy is %d",gc->compute_energy());
+		printf("\nBefore optimization energy is %lld",gc->compute_energy());
 		gc->expansion(2);// run expansion for 2 iterations. For swap use gc->swap(num_iterations);
-		printf("\nAfter optimization energy is %d",gc->compute_energy());
+		printf("\nAfter optimization energy is %lld",gc->compute_energy());
 
 		for ( int  i = 0; i < num_pixels; i++ )
 			result[i] = gc->whatLabel(i);
@@ -244,9 +244,9 @@ void GridGraph_DArraySArraySpatVarying(int width,int height,int num_pixels,int n
 		GCoptimizationGridGraph *gc = new GCoptimizationGridGraph(width,height,num_labels);
 		gc->setDataCost(data);
 		gc->setSmoothCostVH(smooth,V,H);
-		printf("\nBefore optimization energy is %d",gc->compute_energy());
+		printf("\nBefore optimization energy is %lld",gc->compute_energy());
 		gc->expansion(2);// run expansion for 2 iterations. For swap use gc->swap(num_iterations);
-		printf("\nAfter optimization energy is %d",gc->compute_energy());
+		printf("\nAfter optimization energy is %lld",gc->compute_energy());
 
 		for ( int  i = 0; i < num_pixels; i++ )
 			result[i] = gc->whatLabel(i);
@@ -308,9 +308,9 @@ void GeneralGraph_DArraySArray(int width,int height,int num_pixels,int num_label
 			for (int  x = 0; x < width; x++ )
 				gc->setNeighbors(x+y*width,x+(y-1)*width);
 
-		printf("\nBefore optimization energy is %d",gc->compute_energy());
+		printf("\nBefore optimization energy is %lld",gc->compute_energy());
 		gc->expansion(2);// run expansion for 2 iterations. For swap use gc->swap(num_iterations);
-		printf("\nAfter optimization energy is %d",gc->compute_energy());
+		printf("\nAfter optimization energy is %lld",gc->compute_energy());
 
 		for ( int  i = 0; i < num_pixels; i++ )
 			result[i] = gc->whatLabel(i);
@@ -377,9 +377,9 @@ void GeneralGraph_DArraySArraySpatVarying(int width,int height,int num_pixels,in
 				gc->setNeighbors(p1,p2,p1*p2);
 			}
 
-		printf("\nBefore optimization energy is %d",gc->compute_energy());
+		printf("\nBefore optimization energy is %lld",gc->compute_energy());
 		gc->expansion(2);// run expansion for 2 iterations. For swap use gc->swap(num_iterations);
-		printf("\nAfter optimization energy is %d",gc->compute_energy());
+		printf("\nAfter optimization energy is %lld",gc->compute_energy());
 
 		for ( int  i = 0; i < num_pixels; i++ )
 			result[i] = gc->whatLabel(i);
@@ -428,7 +428,7 @@ int main(int argc, char **argv)
 	// which actually is a grid. Also uses spatially varying terms
 	GeneralGraph_DArraySArraySpatVarying(width,height,num_pixels,num_labels);
 
-	printf("\n  Finished %d (%d) clock per sec %d",clock()/CLOCKS_PER_SEC,clock(),CLOCKS_PER_SEC);
+	printf("\n  Finished %lu (%lu) clock per sec %d",clock()/CLOCKS_PER_SEC,clock(),CLOCKS_PER_SEC);
 
 	return 0;
 }

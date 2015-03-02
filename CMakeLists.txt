@@ -12,9 +12,10 @@ set(lib_srcs
     LinkedBlockList.h
     block.h
     energy.h
-    graph.cpp
+#    graph.cpp
     graph.h
-    maxflow.cpp)
+#    maxflow.cpp
+    )
 
 set(example_srcs
     example.cpp)
