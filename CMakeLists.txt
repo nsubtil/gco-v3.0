@@ -12,9 +12,7 @@ set(lib_srcs
     LinkedBlockList.h
     block.h
     energy.h
-#    graph.cpp
     graph.h
-#    maxflow.cpp
     )
 
 set(example_srcs
@@ -30,5 +28,5 @@ install(TARGETS gco
         COMPONENT library)
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         DESTINATION "${CMAKE_INSTALL_PREFIX}/include"
-        FILES_MATCHING PATTERN "*.h")
+        FILES_MATCHING PATTERN "*.h" PATTERN "*.inl")
 
