@@ -24,3 +24,11 @@ add_library(gco ${lib_srcs})
 add_executable(example ${example_srcs})
 target_link_libraries(example gco)
 
+install(TARGETS gco
+        ARCHIVE DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
+        LIBRARY DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
+        COMPONENT library)
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/include"
+        FILES_MATCHING PATTERN "*.h")
+
