@@ -209,7 +209,7 @@ public:
 	DBlock(int size, void (*err_function)(const char *) = NULL) { first = NULL; first_free = NULL; block_size = size; error_function = err_function; }
 
 	/* Destructor. Deallocates all items added so far */
-	~DBlock() { while (first) { block *next = first -> next; delete first; first = next; } }
+	~DBlock() { while (first) { block *next = first -> next; delete [] first; first = next; } }
 
 	/* Allocates one item */
 	Type *New()
