@@ -66,8 +66,8 @@ mexcmd = ['mex ' MEXFLAGS ' -outdir ''' OUTDIR ''' -output ' LIB_NAME ' ' ];
 SRCCPP = { 
     [GCOMATDIR filesep 'gco_matlab.cpp'],
     [GCODIR filesep 'GCoptimization.cpp'],
-    [GCODIR filesep 'graph.cpp'],
-    [GCODIR filesep 'maxflow.cpp'],
+    % [GCODIR filesep 'graph.cpp'],
+    % [GCODIR filesep 'maxflow.cpp'],
     [GCODIR filesep 'LinkedBlockList.cpp']
     };
 for f=1:length(SRCCPP)
